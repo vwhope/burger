@@ -14,12 +14,12 @@ using: jQuery, Node.js, Express, Express-Handlebars, MySQL, and a custom ORM, fo
 
 **Solution** 
 
-Apply handlebars templating to dynamically update user's display
-Use MySQL database for persistent data storage
-Combine MySQL, Express and AJAX for routing and CRUD operations
-Follow Model View Controller (MVC) design pattern to separate code into 
+* Apply handlebars templating to dynamically update user's display
+* Use MySQL database for persistent data storage
+* Combine MySQL, Express and AJAX for routing and CRUD operations
+* Follow Model View Controller (MVC) design pattern to separate code into 
   data, presentation and control files.
-Deploy project using Heroku
+* Deploy project using Heroku
  
 
 **Technical Skills demonstrated in project:**
@@ -31,32 +31,33 @@ Deploy project using Heroku
 * Other technologies
     * JavaScript
     * jQuery
-* mobile responsive design
     
 **Goals of program:**
 * display a list of burgers to user 
 * burgers waiting to be eaten on left side of display
 * burgers eaten displayed on right side of display 
 * allow user to add a burger to the list and see it appear in real-time
-* allow user to click "devour" button to "eat" burger and move to right side of screen
+* allow user to click "Devour It!" button to "eat" burger and move to right side of screen
 * all burgers entered in GUI persist in database
 
 **Setup To run program on your own system:**
-* You must have Node.js, and MySQL installed on your 
+* Node.js and MySQL must be installed on your system 
 * clone the burger repo into a dirctory on your system
 * from command line while in that directory key: npm install
-* naviagate to the directory db, then from command line key:
+* naviagate to the directory "db", then from command line key:
+   ```
    source schema.sql
-   source seeeds.sql 
-* return to your project root directory on your system, key: 
+   source seeds.sql
+   ``` 
+* navigate to project root directory on your system, key: 
  ```
  node server.js
   ```
-* in browser, navigate to http://localhost:8080, you should see burger application
+* in browser, navigate to http://localhost:8080, you should see the burger application
 
 ![Burger Application Page](public/assets/img/indexView.jpg)
 
-* click on "Devour It!" button beside any burger on left side list
+* click "Devour It!" button beside any burger on left side list
 * clicking devour button will move burger to right side list
 * may also enter a new burger name to list, 
    just enter name, then click "Add-Da-Burger!" button to add it to left side list
@@ -69,3 +70,4 @@ Deploy project using Heroku
 * Improve user interface and design
 * Add Update option for changing burger name or devour status
 * Add favicon
+* improve mobile responsive design
