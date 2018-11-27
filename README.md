@@ -53,9 +53,9 @@ using: jQuery, Node.js, Express, Express-Handlebars, MySQL, and a custom ORM, fo
  ```
  node server.js
   ```
-* in browser, navigate to http://localhost:8080, you should see the burger application
+* in browser, navigate to "http://localhost:8080", you should see the burger application
 
-![Burger Application Page](./public/assets/img/indexView.jpg)
+![Burger Application Page](/assets/img/indexView.jpg)
 
 * click "Devour It!" button beside any burger on left side list
 * clicking devour button will move burger to right side list
