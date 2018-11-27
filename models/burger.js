@@ -10,23 +10,23 @@ var orm = require('../config/orm.js');
 var burger = {
     selectAll: function selectAll(cb) {
       // This is like: SELECT * FROM burgers
-      console.log("burger.selectAll called");
-      orm.selectAll("burgers", function handleSelectAll(res) {
+      console.log('burger.selectAll called');
+      orm.selectAll('burgers', function handleSelectAll(res) {
         cb(res);
       });
     },
 
     // The variables cols and vals are arrays.
     insertOne: function insertOne(cols, vals, cb) {
-      console.log("burger.insertOne called");
-      orm.insertOne("burgers", cols, vals, function handleInsertOne(res) {
+      console.log('burger.insertOne called');
+      orm.insertOne('burgers', cols, vals, function handleInsertOne(res) {
         cb(res);
       });
     },
 
     updateOne: function(objColVals, condition, cb) {
-      console.log("burger.updateOne called");
-      orm.updateOne("burgers", objColVals, condition, function handleUpdateOne(res) {
+      console.log('burger.updateOne called');
+      orm.updateOne('burgers', objColVals, condition, function handleUpdateOne(res) {
         cb(res);
       });
     },

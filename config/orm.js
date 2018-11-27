@@ -2,19 +2,16 @@ var connection = require('../config/connection.js');
 
 // create CRUD methods for burgers_db, table: burgers
 // export methods as an Object Relational Mapper (ORM)
-// FYI ?? swaps table or column names
-// ? swaps other values
+//  ?? swaps table or column names, ? swaps other values
 // 
-// Helper function for SQL syntax.
-// Let's say we want to pass 3 values into the mySQL query.
-// In order to write the query, we need 3 question marks.
-// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
-// ["?", "?", "?"].toString() => "?,?,?";
+// Helper function for SQL syntax
+// This function loops through and creates an array of question marks - ['?', '?', '?'] - and turns it into a string.
+// ['?', '?', '?'].toString() => '?,?,?';
 function printQuestionMarks(num) {
     var arr = [];
   
     for (var i = 0; i < num; i++) {
-      arr.push("?");
+      arr.push('?');
     }
   
     return arr.toString();
@@ -30,38 +27,39 @@ function printQuestionMarks(num) {
       // check to skip hidden properties
       if (Object.hasOwnProperty.call(ob, key)) {
         // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        if (typeof value === 'string' && value.indexOf(' ') >= 0) {
           value = "'" + value + "'";
         }
         // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
         // e.g. {sleepy: true} => ["sleepy=true"]
-        arr.push(key + "=" + value);
+        arr.push(key + '=' + value);
       }
     }
   
     // translate array of strings to a single comma-separated string
     return arr.toString();
   }
-  
+
+// begin Object Relational Mapping for each query function  
 var orm = {
 
-selectAll:  function(table, callback ) {
+  selectAll:  function(table, callback ) {
     var queryString = 'SELECT * FROM ??';
     connection.query(queryString, [table], function (err, res) {
         if (err) throw err;
         callback(res);
             
     });
- },  
+  },  
 
-insertOne: function(table, cols, vals, callback) {
+  insertOne: function(table, cols, vals, callback) {
      var queryString = 'INSERT INTO ' + table;
-     queryString += " (";
+     queryString += ' (';
      queryString += cols.toString();
-     queryString += ") ";
-     queryString += "VALUES (";
+     queryString += ') ';
+     queryString += 'VALUES (';
      queryString += printQuestionMarks(vals.length);
-     queryString += ") ";
+     queryString += ') ';
  
      console.log(queryString);
      
@@ -69,31 +67,30 @@ insertOne: function(table, cols, vals, callback) {
      connection.query(queryString, vals, function(err, result) {
 
         if (err) throw err;
-        // console.log(result.affectedRows + " " + burger + ' added.');
-         console.log('insertOne: ' + result);
+         console.log(result.affectedRows + ' ' + 'burger added.');
+       //  console.log('insertOne: ' + result);
          callback(result);
      });
- },
+  },
 
-// update the devoured field from false to true to move burger to right side of screen
-// objColVals should be {burger: new burger name, devoured: true}
-updateOne: function(table, objColVals, condition, callback) {
+  // update the devoured field from false to true to move burger to right side of screen
+  // objColVals should be {burger: new burger name, devoured: true}
+  updateOne: function(table, objColVals, condition, callback) {
     var queryString = 'UPDATE ' + table;
 
-    queryString += " SET ";
+    queryString += ' SET ';
     queryString += objToSql(objColVals);
-    queryString += " WHERE ";
+    queryString += ' WHERE ';
     queryString += condition;
 
-    console.log("Update: " + queryString);
+    console.log(queryString);
 
     connection.query(queryString, function(err,result) {
        if (err) throw err;
-        console.log(result.affectedRows + burger + ' updated.');
-        console.log('updateOne: ' + result); 
-        callback(result);
-       });
-    }
+       console.log(result.affectedRows + ' ' + 'burger updated.');
+       callback(result);
+    });
+  }
 
 }; //end ORM object
 

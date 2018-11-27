@@ -1,8 +1,8 @@
-<div id='main-content'>
+<div id="main-content">
 
-  <div id='waiting'>
+  <div id="waiting">
     <h2>Waiting to be Devoured ...</h2>
-    <!-- Read list of burgers in db (SELECT/GET), and delete button -->
+    <!-- Read list of burgers in db (SELECT/GET), and show devour button -->
     <ul>
     <!-- for each burger in db burgers_db, table burgers, list id and burger name --> 
       {{#each burgers}}
@@ -18,17 +18,19 @@
     </ul>
   </div>
 
+
   <!-- Create new burger record (INSERT/POST), display Add burger button -->
-  <div id='create'>
-    <img src='/assets/img/burger100_edt.png' alt='no burger img found'>
+  <div id="create">
+    <img src="/assets/img/burger100_edt.png" alt="no burger img found">
     <h2>Eat-Da-Burger!</h2>
     <form id="addburger" class="button-size">
       <textarea type="text" name="burger"></textarea>
-      <button type="submit">Add Da Burger!</button>
+      <button type="submit">Add-Da-Burger!</button>
     </form>
   </div>
 
-  <div id='devoured'>
+
+  <div id="devoured">
     <h2>Devoured! YUM!</h2>
     <!-- Read list of burgers in db (SELECT/GET), and delete button -->
     <ul>
@@ -45,11 +47,11 @@
     </ul>
   </div>
 
-
-
-
-  <!-- DON'T NEED THIS PART but keep for enhancement - Update existing record (UPDATE/PUT), and update button -->
-  <div id='update'>
+{{!-- 
+  <!-- DON"T NEED THIS PART but keep for enhancement - Update existing record (UPDATE/PUT), and update button -->
+  <div id="update">
+    <br>
+    <br>
     <hr>
     <h3>Update existing Burger</h3>
     <form id="updateburger" class="button-size">
@@ -57,114 +59,11 @@
       <textarea type="text" name="burger" placeholder="Enter new name here?"></textarea>
       <button type="submit">Update Burger!</button>
     </form>
-  </div>
+    <br>
+    <br>
+  </div> --}}
 
 </div>
-
-{{!-- <!-- Begin JavaScript and jQuery scripts -->
-<script type="text/javascript">
-
-////////////
-
-
-// UPDATE: on click of devour it button, get ID, 
-// then change devoured from FALSE to 
-// ?? I don't want to update the jQuery - browser data, just want to change 
-// the value of devoured in the database  - 
-// UPDATE burgers SET devoured=TRUE WHERE id = '3';
-  $(".devour").on("click", function(event) {
-    var id = $(this).data("burgerid");
-
-    var devoured = {
-      'devoured': 'TRUE'
-    };
-
-    // Send the UPDATE request for specified id.
-    $.ajax("/burgers/" + id, {
-      type: "PUT",
-      data: devoured
-    }).then(
-      function() {
-        console.log("devoured id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-
-////////////
-// Upon clicking 'Devour It!' button:
-// I could dlt record, then insert new record with correct devoured value
-// but it seems more efficient to just update the one field in the record
-
-// DELETE: on click of delete button, get id of burger to be deleted
-//  $(".delburger").on("click", function(event) {
-//    var id = $(this).data("burgerid");
-
-    // Send the DELETE request for specified id.
-  //  $.ajax("/burgers/" + id, {
-  //    type: "DELETE"
-  //  }).then(
-  //    function() {
-  //      console.log("deleted id ", id);
-        // Reload the page to get the updated list
-   //     location.reload();
-     // }
-   // );
-//  });
-
-
-// ADD: on submit, create new burger object, post to database
-  $("#addburger").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newBurger = {
-      burger: $("#addburger [name=burger]").val().trim()
-    };
-
-    // Send the POST request.
-    $.ajax("/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("added new burger");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-
-
-// UPDATE: on submit, get ID#, and new burger value to be updated, then PUT request to update recored in DB 
-  $("#updateburger").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var id = $("[name=id]").val().trim();
-
-    var updatedBurger = {
-      chicken: $("#updateburger [name=burger]").val().trim()
-    };
-
-    // Send the PUT request.
-    $.ajax("/burgers/" + id, {
-      type: "PUT",
-      data: updatedBurger
-    }).then(
-      function() {
-        console.log("updated id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-</script>
- --}}
-
 
 
 
