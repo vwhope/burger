@@ -3,7 +3,7 @@
 Click link to run deployed version: [burger](https://vwhope)
 
 ### a full-stack web application
-using: jQuery, Node.js, Express, Express-Handlebars, MySQL, and a custom ORM, following MVC design pattern 
+using: jQuery, JavaScript, Node.js, Express, Express-Handlebars, MySQL, and a custom ORM, following MVC design pattern 
 
 **Problems to Solve**
 * dynamically serve content to user
@@ -67,7 +67,7 @@ using: jQuery, Node.js, Express, Express-Handlebars, MySQL, and a custom ORM, fo
 
 
 **Future Enhancement Ideas:**
-* Improve user interface and design
-* Add Update option for changing burger name or devour status
-* Add favicon
+* improve user interface and design
+* add Update option for changing burger name or devour status
+* add favicon
 * improve mobile responsive design
