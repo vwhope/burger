@@ -1,6 +1,6 @@
 # burger
 
-Click link to run deployed version: [burger](https://vwhope)
+Click link to run deployed version: [burger](https://obscure-scrubland-98511.herokuapp.com/)
 
 ### a full-stack web application
 using: jQuery, JavaScript, Node.js, Express, Express-Handlebars, MySQL, and a custom ORM, following MVC design pattern 
