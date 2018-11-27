@@ -12,10 +12,7 @@ app.use(express.json());
 // handlebars setup
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
-// do I need this? If YES, must install and require path
-// app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'handlebars'); // handlebars is handling what the user sees
 
 // import routes
 var routes = require('./controllers/burgers_controller.js');
